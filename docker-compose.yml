@@ -37,10 +37,12 @@ services:
     build:
       context: ./images/php-apache
       dockerfile: ./Dockerfile
+    ports:
+      - "8079:80"
     links:
         - cache
     volumes:
-        - ./ComparisonService/:/app/
+        - ./ComparisonService/:/var/www/
     environment:
         - APP_ENV=development
         - WEB_DOCUMENT_INDEX=public/index.php
