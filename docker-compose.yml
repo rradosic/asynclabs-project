@@ -1,0 +1,46 @@
+version: '3'
+services:
+
+  load_balancer:
+    image: dockercloud/haproxy
+    links:
+        - reporter_api
+    ports:
+        - "8080:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment: 
+      - MODE=tcp
+      - TCP_PORTS=80
+      - VIRTUAL_HOST=localhost
+
+  cache:
+      image: redis
+      ports:
+        - "6379:6379"
+
+  reporter_api:
+      build:
+        context: ./images/php-apache
+        dockerfile: ./Dockerfile
+      links:
+          - cache
+      ports:
+      - "8081:80"
+      volumes:
+          - ./ReporterAPI/:/var/www/
+      environment:
+          - APP_ENV=development
+          - WEB_DOCUMENT_INDEX=public/index.php
+
+  comparison_service:
+    build:
+      context: ./images/php-apache
+      dockerfile: ./Dockerfile
+    links:
+        - cache
+    volumes:
+        - ./ComparisonService/:/app/
+    environment:
+        - APP_ENV=development
+        - WEB_DOCUMENT_INDEX=public/index.php
