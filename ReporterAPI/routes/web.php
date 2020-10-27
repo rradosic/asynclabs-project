@@ -49,6 +49,6 @@ $router->get('/streamComparisonReport', function () use ($router) {
     
 });
 
-$router->get('/', function () use ($router) {
-    return response()->json(["status"=>"OK"]);
+$router->get('/health', function () use ($router) {
+    return response()->json(["status"=>"Still Alive"]);
 });

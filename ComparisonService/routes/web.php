@@ -28,11 +28,3 @@ $router->get('/health', function () use ($router) {
 
     return response()->json(['status' => 'Still Alive', 'comparisonsDone' => $comparisonsDone]);
 });
-
-$router->get('/', function () use ($router) {
-    $comparisonsDone = Cache::get("comparisonsDone");
-    
-    if(empty($comparisonsDone)) $comparisonsDone = 0;
-
-    return response()->json(['status' => 'Still Alive', 'comparisonsDone' => $comparisonsDone]);
-});
