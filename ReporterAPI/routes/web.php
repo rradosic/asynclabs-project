@@ -25,13 +25,17 @@ $router->get('/streamComparisonReport', function () use ($router) {
     $firstSetData = Cache::get("firstSetData");
     $secondSetData = Cache::get("secondSetData");
 
-    //Index of the larger value
     if(!empty($firstSetData) && !empty($secondSetData)){
+        //Index of the larger value
         $firstSetMostVowels = array_keys($firstSetData["values"], max($firstSetData["values"]))[0];
         $secondSetMostVowels = array_keys($secondSetData["values"], max($secondSetData["values"]))[0];
 
         $firstSetData["mostVowels"] = $firstSetData["names"][$firstSetMostVowels];
         $secondSetData["mostVowels"] = $secondSetData["names"][$secondSetMostVowels];
+
+        $firstSetData["similarityPercentage"] = number_format((min($firstSetData["values"])/max($firstSetData["values"]))*100,2);
+        $secondSetData["similarityPercentage"] = number_format((min($secondSetData["values"])/max($secondSetData["values"]))*100,2);
+
 
         return response()->json([
             "success" => true,
