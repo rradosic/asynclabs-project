@@ -14,10 +14,12 @@ between texts.
 ### Steps
  1. `git clone https://github.com/rradosic/asynclabs-project.git async-rradosic`
  2. `cd async-rradosic`
- 3. `docker-compose up`
+ 3. `docker run --rm -v $(pwd)/ComparisonService:/app composer install`
+ 4. `docker run --rm -v $(pwd)/ReporterAPI:/app composer install`
+ 5. `docker-compose up`
  
  ## Architecture
  ![Architecture](https://i.ibb.co/C04n8Nt/Untitled-Document.png)
 
 ## Horizontal scaling
-ReporterAPI service can be scaled horizontally to simulate a case of an overloaded API endpoint. It can be scaled with `docker-compose scale web=n` where n is the number of instances you want to create. HAProxy service will automatically balance the load between all instances with the round robin method.
+ReporterAPI service can be scaled horizontally to simulate a case of an overloaded API endpoint. It can be scaled with `docker-compose scale reporter_api=n` where n is the number of instances you want to create. HAProxy service will automatically balance the load between all instances with the round robin method.
