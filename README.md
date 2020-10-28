@@ -2,7 +2,7 @@
 # ASYNCLABS INTERVIEW PROJECT
 
 The task was to implement streaming service of lorem ipsum words that will inspect similarity
-between texts. 
+between texts. Comparison method used for this implementation is the number of vowels in each text.
 
 
 
