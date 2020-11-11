@@ -13,4 +13,4 @@ RUN crontab /etc/cron.d/schedule-cron
 RUN pecl install redis && docker-php-ext-enable redis
 RUN sed -i '/imklog/s/^/#/' /etc/rsyslog.conf
 
-CMD rsyslogd && cron && apache2-foreground
+CMD rsyslogd && cron && chown -R www-data:www-data /var/www/storage && apache2-foreground

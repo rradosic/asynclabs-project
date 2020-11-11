@@ -30,7 +30,7 @@ class ReportController extends Controller
                 ]
             ]);
         } else {
-            return response('', 404, [
+            return response('The data is not ready yet. Try again in a minute.', 404, [
                 "Retry-After" => 60
             ]);
         }

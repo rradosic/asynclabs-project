@@ -4,7 +4,7 @@ namespace App\LoremIpsumStreams;
 
 abstract class BaseLoremIpsumStream implements LoremIpsumStream
 {
-    private string $name;
+    protected string $name = 'Base Lorem Stream';
 
     public function getName(): string
     {

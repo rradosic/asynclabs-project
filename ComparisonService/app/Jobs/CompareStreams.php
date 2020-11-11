@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Cache;
 
 class CompareStreams extends Job
 {
+    private StreamComparer $streamComparer;
+
     /**
      * Create a new job instance.
      *
@@ -19,7 +21,6 @@ class CompareStreams extends Job
      */
     public function __construct()
     {
-        //
     }
 
     /**
@@ -29,6 +30,7 @@ class CompareStreams extends Job
      */
     public function handle(StreamComparer $streamComparer)
     {
+
         $skateStream = new SkateLoremIpsumStream();
         $corporateStream = new CorporateLoremIpsumStream();
         $hipsterStream = new HipsterLoremIpsumStream();

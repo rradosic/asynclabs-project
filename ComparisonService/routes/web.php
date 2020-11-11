@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Cache;
 */
 
 $router->get('/health', function () use ($router) {
+
     $comparisonsDone = Cache::get("comparisonsDone");
     
     if(empty($comparisonsDone)) $comparisonsDone = 0;

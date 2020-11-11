@@ -26,7 +26,7 @@ services:
       links:
           - cache
       volumes:
-          - ./ReporterAPI/:/var/www/
+          - ./ReporterAPI/:/var/www/:rw
       environment:
           - APP_ENV=development
           - WEB_DOCUMENT_INDEX=public/index.php
@@ -40,7 +40,7 @@ services:
     links:
         - cache
     volumes:
-        - ./ComparisonService/:/var/www/
+        - ./ComparisonService/:/var/www/:rw
     environment:
         - APP_ENV=development
         - WEB_DOCUMENT_INDEX=public/index.php

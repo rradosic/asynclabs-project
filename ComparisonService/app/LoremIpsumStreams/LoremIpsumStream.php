@@ -7,7 +7,8 @@ interface LoremIpsumStream
     /**
      * Returns text of the stream
      *
-     * @return string
+     * 
+     * @return string Text of multiple sentences separated with standard characters (!, ., ?)
      */
     public function getText(): string;
 
