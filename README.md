@@ -1,5 +1,5 @@
 
-# ASYNCLABS INTERVIEW PROJECT
+# SIMILARIPSUM
 
 The task was to implement streaming service of lorem ipsum words that will inspect similarity
 between texts. Comparison method used for this implementation is the number of vowels in each text.
@@ -12,8 +12,8 @@ between texts. Comparison method used for this implementation is the number of v
  - Docker
 
 ### Steps
- 1. `git clone https://github.com/rradosic/asynclabs-project.git async-rradosic`
- 2. `cd async-rradosic`
+ 1. `git clone https://github.com/rradosic/similaripsum.git similaripsum`
+ 2. `cd similaripsum`
  3. `docker run --rm -v $(pwd)/ComparisonService:/app composer install`
  4. `docker run --rm -v $(pwd)/ReporterAPI:/app composer install`
  5. `docker-compose up`

@@ -4,10 +4,8 @@ namespace App\LoremIpsumStreams;
 
 use App\LoremIpsumStreams\Traits\HasName;
 
-class CorporateLoremIpsumStream implements LoremIpsumStreamInterface
+class CorporateLoremIpsumStream extends BaseLoremIpsumStream
 {
-    use HasName;
-
     function __construct()
     {
         $this->name = "Corporate Ipsum";

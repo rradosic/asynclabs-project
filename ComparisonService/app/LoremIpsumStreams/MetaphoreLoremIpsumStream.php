@@ -4,10 +4,8 @@ namespace App\LoremIpsumStreams;
 
 use App\LoremIpsumStreams\Traits\HasName;
 
-class MetaphoreLoremIpsumStream implements LoremIpsumStreamInterface
+class MetaphoreLoremIpsumStream extends BaseLoremIpsumStream
 {
-    use HasName;
-
     function __construct()
     {
         $this->name = "Metaphore Ipsum";

@@ -4,10 +4,8 @@ namespace App\LoremIpsumStreams;
 
 use App\LoremIpsumStreams\Traits\HasName;
 
-class HipsterLoremIpsumStream implements LoremIpsumStreamInterface
+class HipsterLoremIpsumStream extends BaseLoremIpsumStream
 {
-    use HasName;
-
     function __construct()
     {
         $this->name = "Hipster Ipsum";

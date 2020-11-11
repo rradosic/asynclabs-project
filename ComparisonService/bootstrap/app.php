@@ -48,6 +48,8 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->bind('App\StreamComparer', 'App\VowelStreamComparer');
+
 /*
 |--------------------------------------------------------------------------
 | Register Config Files

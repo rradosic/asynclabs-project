@@ -2,7 +2,7 @@
 
 namespace App\LoremIpsumStreams;
 
-interface LoremIpsumStreamInterface
+interface LoremIpsumStream
 {
     /**
      * Returns text of the stream

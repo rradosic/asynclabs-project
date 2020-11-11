@@ -2,21 +2,23 @@
 
 namespace App;
 
-//Could implement an interface but its assumed there will be only one comparison strategy
-class StreamVowelComparer
+use App\LoremIpsumStreams\LoremIpsumStream;
+
+class VowelStreamComparer implements StreamComparer
 {
-
-
     /**
      * Compares streams based on how many vowels they have
      *
-     * @param LoremIpsumStreams\LoremIpsumStreamInterface $firstStream
-     * @param LoremIpsumStreams\LoremIpsumStreamInterface $secondStream
+     * @param App\LoremIpsumStreams\LoremIpsumStream $firstStream
+     * @param App\LoremIpsumStreams\LoremIpsumStream $secondStream
      * @param int $wordOffset=5 Offset to use for comparison
      * @return array Structure [0]=> First stream, [1]=> Second stream
      */
-    public static function compareStreams($firstStream, $secondStream, $wordOffset = 5)
+
+    public static function compareStreams(LoremIpsumStream $firstStream, LoremIpsumStream $secondStream)
     {
+        $wordOffset = 5;
+
         $firstText = explode(" ", $firstStream->getText());
         $secondText = explode(" ", $secondStream->getText());
 
